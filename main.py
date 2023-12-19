@@ -16,7 +16,7 @@ def network_discovery(target):
         print(f"Device: {host} is {nm[host].state()}")
 
 
-# Use discover_devices to retrieve all the devices currently connected to my network
+# Use discover_devices to retrieve all the devices currently connected to your network
 def discover_devices(target):
     nm = nmap.PortScanner()
     nm.scan(hosts=target, arguments='-sn')
@@ -28,12 +28,12 @@ def discover_devices(target):
     return devices
 
 
-# Continuously monitors my network, scanning it every 30 seconds for intruding devices
+# Continuously monitors you network, scanning it every 30 seconds for intruding devices
 def continuous_network_monitoring(target, my_devices):
     while True:
         print(f"\nScanning network at {time.strftime('%Y-%m-%d %H:%M:%S')}")
         discovered_devices = discover_devices(target)
-        # Compare with known devices and notify me if a new device is found
+        # Compare with known devices and notify you if a new device is found
         imposter = False
         for device in discovered_devices:
             if device['ip'] not in my_devices:
