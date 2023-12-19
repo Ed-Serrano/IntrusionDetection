@@ -3,7 +3,7 @@ import time
 
 # Assign your modems ip address to the target variable
 target = 0
-# my_devices are where your device addresses be stored, including your modem
+# my_devices are where your device addresses are stored, including your modem
 my_devices = []
 
 # Use network_discovery to retrieve the addresses of your devices. We don't want to assign them right away as we have
