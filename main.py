@@ -6,8 +6,7 @@ target = 0
 # my_devices are where your device addresses are stored, including your modem
 my_devices = []
 
-# Use network_discovery to retrieve the addresses of your devices. We don't want to assign them right away as we have
-# yet to check their validity
+# Use network_discovery to retrieve the network addresses of your devices and populate the my_devices variable
 def network_discovery(target):
     nm = nmap.PortScanner()
     nm.scan(hosts=target, arguments='-sn')
@@ -15,8 +14,6 @@ def network_discovery(target):
     for host in nm.all_hosts():
         print(f"Device: {host} is {nm[host].state()}")
 
-
-# Use discover_devices to retrieve all the devices currently connected to your network
 def discover_devices(target):
     nm = nmap.PortScanner()
     nm.scan(hosts=target, arguments='-sn')
@@ -27,8 +24,6 @@ def discover_devices(target):
 
     return devices
 
-
-# Continuously monitors you network, scanning it every 30 seconds for intruding devices
 def continuous_network_monitoring(target, my_devices):
     while True:
         print(f"\nScanning network at {time.strftime('%Y-%m-%d %H:%M:%S')}")
